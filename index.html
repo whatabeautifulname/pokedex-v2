@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>pokedex v2</title>
+  
+  
+  
+      <link rel="stylesheet" href="./pokedex.css">
+
+  
+</head>
+
+<body>
+
+  <body>
+  <p id="title">
+    <span class="instructions" id="instructions"> Click on the Blue Button!</span>
+    <span> <button onclick = "powerClick()" class = "powerbutton" id = "powerbutton"> </button>  </span>
+  </p>
+
+  <div class="full-pokedex">
+    <div class="red-pokedex-top" id="red-top">
+
+      <div class="black-circle-top"> </div>
+      </dic>
+      <div class="blue-glass-middle">
+
+        <div class="hidden" id="hidden">
+          <div class="inner-blue-dex-container" id="info">
+
+            <div id="image-box1">
+
+              <img src="https://purepng.com/public/uploads/large/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825865sl5vr.png" id="pokemon-sprite"> </img>
+            </div>
+            <div id="image-box2">
+              <p> Name: <span id="pokemon-name"> </span></p>
+              <p> No. <span id="pokemon-number"> </span> </p>
+              Type:
+              <p class="pokemon-type-bubbles">
+                <div id="pokemon-type1"> </div>
+                <div id="pokemon-type2"> </div>
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="searchbar">
+          <input type="text" id="theuserinput" placeholder=" Enter a Pokemon Name or #">
+          <input type="submit" value="Search" class="submit-button" onclick="pokedexOutput(); return false;" />
+
+        </div>
+      </div>
+
+      <div class="red-pokedex-bottom" id="red-bottom">
+        <div class="black-circle-bottom"> </div></div>
+      </div>
+
+</body>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+
+  
+
+    <script  src="./pokedex.js"></script>
+
+
+
+
+</body>
+
+</html>
