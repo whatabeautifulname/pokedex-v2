@@ -1,4 +1,4 @@
-# pokedex-v2
+# Pokedex-v2
 
 ## Description
 
