@@ -1,11 +1,18 @@
-// Creates url from user input and returns
+// Project is acceptable
+//Things to do...
+//Add nice looking google fonts
+//Add animation
+//Fix Colors and Shadows
+// Make Search Nicer
+
+// creates url from user input and returns
 function InquirePokemonNumber() {
   var pokeDigit = document.getElementById("theuserinput").value;
   var pokeUrl = "https://pokeapi.co/api/v2/pokemon/" + pokeDigit;
   return pokeUrl;
 }
 
-// Get JSON pokemon information and stores into an array
+// get JSON pokemon information and stores into an array
 function getJSOND() {
   var pokeUrl = InquirePokemonNumber();
   var arrayPokeData = [];
@@ -36,19 +43,20 @@ function getJSOND() {
 }
 
 // Outputs array data into pokedex
-function pokedexOutput() {
+var callback = function pokedexOutput() {
   var arrayPokeData = getJSOND();
-  document.getElementById("pokemon-name").innerHTML = arrayPokeData[1];
-  console.log(arrayPokeData[0]);
+  document.getElementById("pokemon-name").innerHTML = arrayPokeData[1].charAt(0).toUpperCase() + arrayPokeData[1].substr(1);
+ 
   document.getElementById("pokemon-sprite").src = arrayPokeData[0];
   document.getElementById("pokemon-number").innerHTML = arrayPokeData[3];
-  document.getElementById("pokemon-type1").innerHTML = arrayPokeData[2];
-  document.getElementById("pokemon-type2").innerHTML = arrayPokeData[4];
+  document.getElementById("pokemon-type1").innerHTML = arrayPokeData[2].charAt(0).toUpperCase() + arrayPokeData[2].substr(1);
+  document.getElementById("pokemon-type2").innerHTML = arrayPokeData[4].charAt(0).toUpperCase() + arrayPokeData[4].substr(1);
   document.getElementById("pokemon-type1").className = arrayPokeData[2];
   document.getElementById("pokemon-type2").className = arrayPokeData[4];
   eraseInstructions();
-}
+};
 
+// Provides animation upon power button click
 $(document).ready(function() {
   var count = 0;
   $("#powerbutton").click(function() {
@@ -64,7 +72,7 @@ $(document).ready(function() {
   });
 });
 
-// Power button that provides instructional message
+// Power button
 function powerClick() {
   document.getElementById("instructions").innerHTML =
     "Type the name of any pokemon or use their Pokemon ID #";
@@ -75,3 +83,12 @@ function eraseInstructions() {
   document.getElementById("instructions").innerHTML =
     "Tap the blue button again to turn the pokedex off";
 }
+
+// Binds event click & enter jQuery
+$("#theuserinput").keypress(function(event) {
+  if (event.which == 13) {
+    callback();
+  }
+});
+
+$(".submit-button").click(callback);
